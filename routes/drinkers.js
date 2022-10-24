@@ -1,15 +1,15 @@
 var router = require("express").Router();
-var studentsCtrl = require("../controllers/students");
+var drinkersCtrl = require("../controllers/drinkers");
 
-// GET /students
-router.get("/students", studentsCtrl.index);
+// GET /drinkers
+router.get("/drinkers", drinkersCtrl.index);
 
 // POST /facts
 // We will already have access to the logged in student on
-// the server, therefore do not use: /students/:id/facts
-router.post("/facts", studentsCtrl.addFact);
+// the server, therefore do not use: /drinkers/:id/facts
+router.post("/facts", drinkersCtrl.addFact);
 
 // DELETE /facts/:id
-router.delete("/facts/:id", studentsCtrl.delFact);
+router.delete("/facts/:id", drinkersCtrl.delFact);
 
 module.exports = router;

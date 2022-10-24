@@ -11,7 +11,7 @@ var factSchema = new mongoose.Schema(
   }
 );
 
-var studentSchema = new mongoose.Schema(
+var drinkerSchema = new mongoose.Schema(
   {
     name: String,
     email: String,
@@ -24,4 +24,4 @@ var studentSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Student", studentSchema);
+module.exports = mongoose.model("Drinker", drinkerSchema);

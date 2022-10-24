@@ -4,7 +4,7 @@ const passport = require("passport");
 
 // The root route renders our only view
 router.get("/", function (req, res) {
-  res.redirect("/students");
+  res.redirect("/drinkers");
 });
 // Google OAuth login route
 router.get(
@@ -15,14 +15,14 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/students",
-    failureRedirect: "/students",
+    successRedirect: "/drinkers",
+    failureRedirect: "/drinkers",
   })
 );
 // OAuth logout route
 router.get("/logout", function (req, res) {
   req.logout();
-  res.redirect("/students");
+  res.redirect("/drinkers");
 });
 
 module.exports = router;

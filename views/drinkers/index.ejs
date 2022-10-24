@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SEI Student Fun Facts</title>
+    <title>Water Drinkers</title>
     <!-- Google Icon Fonts used by Materialize -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
     <!-- Materialize CSS Framework -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    /> -->
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <!-- JavaScript for Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
   </head>
 
   <body>
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="" class="brand-logo left">SEI Student Fun Facts</a>
+          <a href="" class="brand-logo left">Water Drinker Facts</a>
           <!-- Add login UI here -->
           <ul class="right">
             <li>
@@ -41,8 +43,8 @@
     </div>
     <div class="container">
       <div id="search-row" class="row">
-        <h2 class="col s4 blue-grey-text text-darken-2">Students</h2>
-        <form action="/students" method="GET">
+        <h2 class="col s4 blue-grey-text text-darken-2">Drinkers</h2>
+        <form action="/drinkers" method="GET">
           <div class="col s3 offset-s3">
             <!-- search -->
             <div class="input-field">
@@ -76,21 +78,21 @@
         </form>
       </div>
       <div class="row">
-        <div id="students" class="col s12">
-          <% students.forEach(function(student) { %>
+        <div id="drinkers" class="col s12">
+          <% drinkers.forEach(function(drinker) { %>
           <div class="card blue-grey">
             <div class="card-content white-text">
               <div>
                 <span class="card-title">
                   <i class="small material-icons">perm_identity</i>
-                  <span class="student-name"><%= student.name %></span>
-                  <% if (student.cohort) { %><span class="badge white"
-                    >SEI <%= student.cohort %></span
+                  <span class="drinker-name"><%= drinker.name %></span>
+                  <% if (drinker.cohort) { %><span class="badge white"
+                    >SEI <%= drinker.cohort %></span
                   ><% } %>
                 </span>
               </div>
               <ul class="collection">
-                <% student.facts.forEach(function(fact) { %>
+                <% drinker.facts.forEach(function(fact) { %>
                 <li class="collection-item blue-grey-text text-darken-2">
                   <%- fact.text %>
                 </li>
