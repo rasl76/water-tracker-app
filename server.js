@@ -17,9 +17,9 @@ require("./config/database");
 require("./config/passport");
 
 // require our routes
-var indexRoutes = require("./routes/index");
-var drinkersRoutes = require("./routes/drinkers");
-var watersRoutes = require("./routes/waters");
+var indexRouter = require("./routes/index");
+var drinkersRouter = require("./routes/drinkers");
+var watersRouter = require("./routes/waters");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -42,9 +42,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // mount all routes with appropriate base paths
-app.use("/", indexRoutes);
-app.use("/drinkers", drinkersRoutes);
-app.use("./waters", watersRoutes);
+app.use("/", indexRouter);
+app.use("/drinkers", drinkersRouter);
+app.use("/waters", watersRouter);
 
 // invalid request, send 404 page
 app.use(function (req, res) {

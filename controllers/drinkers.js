@@ -11,7 +11,7 @@ function index(req, res, next) {
   // Make the query object to use with Drinker.find based up
   // the user has submitted the search form or now
   let modelQuery = req.query.name
-    ? { name: new RegExp(req.query.name, "i") }
+    ? { name: new RegExp(req.query.name, "span") }
     : {};
   // Default to sorting by name
   let sortKey = req.query.sort || "name";
