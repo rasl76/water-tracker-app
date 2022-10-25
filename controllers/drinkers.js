@@ -2,8 +2,8 @@ const Drinker = require("../models/drinker");
 
 module.exports = {
   index,
-  addFact,
-  delFact,
+  addWater,
+  delWater,
 };
 
 function index(req, res, next) {
@@ -29,11 +29,11 @@ function index(req, res, next) {
     });
 }
 
-function addFact(req, res, next) {
+function addWater(req, res, next) {
   req.user.facts.push(req.body);
   req.user.save(function (err) {
     res.redirect("/drinkers");
   });
 }
 
-function delFact(req, res, next) {}
+function delWater(req, res, next) {}

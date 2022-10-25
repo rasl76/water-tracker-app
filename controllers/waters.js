@@ -6,7 +6,7 @@ function create(req, res) {
     // movie as argument is an object.
     if (err) return res.render(err.message);
     drinker.reviews.push(req.body);
-    // pushes the request body, pushes it to the object of 'movie'
+    // pushes the request body, pushes it to the object of 'drinker'
     drinker.save(function (err) {
       res.redirect(`/movies/${drinker._id}`);
       //   it takes us back to the show page

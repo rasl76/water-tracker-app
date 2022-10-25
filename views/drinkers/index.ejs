@@ -1,86 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Water Drinkers</title>
-    <!-- Google Icon Fonts used by Materialize -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- Materialize CSS Framework -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    /> -->
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-
-    <!-- JavaScript for Materialize -->
-    <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-  </head>
-
-  <body>
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <span class="material-symbols-outlined"> Home</span>
-          <a href="" class="brand-logo left">Water Drinker Facts</a>
-          <!-- Add login UI here -->
-          <ul class="right">
-            <li>
-              <% if (user) { %>
-              <a href="/logout"
-                ><i class="material-icons left">trending_flat</i>Log Out</a
-              >
-              <% } else { %>
-              <a href="/auth/google"
-                ><i class="material-icons left">vpn_key</i>Login with Google</a
-              >
-              <% } %>
-            </li>
-          </ul>
+<%- include('../partials/header') %>
+   <div>
+          <% if (user) { %>
+            <% console.log(user) %>
+          <a href="/logout"
+            ><span class="material-symbols-outlined" id="logout">vpn_key_off
+              </span>Log Out</a>
+          <% } else { %>
+              <% console.log(user) %>
+          <a href="/auth/google"
+            ><span class="material-symbols-outlined" id="login"
+              >vpn_key</span
+            >Login with Google</a
+          >
+          <% } %>
         </div>
-      </nav>
-    </div>
-    <!-- <div class="container">
-      <div id="search-row" class="row">
-        <h2 class="col s4 blue-grey-text text-darken-2">Drinkers</h2>
-        <form action="/drinkers" method="GET">
-          <div class="col s3 offset-s3">
-            search -->
-            <!-- <div class="input-field">
-              <input
-                id="search"
-                type="search"
-                name="name"
-                placeholder="search name"
-                value="<%= name %>"
-                autocomplete="off"
-              />
-              <i class="material-icons">close</i>
-            </div>
-          </div> -->
-          <!-- <div class="col s2">
-            <p>
-              <label for="sort-cohort">
-                <input name="sort" type="radio" id="sort-cohort" value="cohort"
-                class="with-gap" <%= sortKey === 'cohort' ? 'checked' : '' %> >
-                <span>Sort by Cohort</span>
-              </label>
-            </p>
-            <p>
-              <label for="sort-name">
-                <input name="sort" type="radio" id="sort-name" value="name"
-                class="with-gap" <%= sortKey === 'name' ? 'checked' : '' %> >
-                <span>Sort by Name</span>
-              </label>
-            </p>
-          </div> -->
-        </form>
-      </div>
+
+
       <div class="row">
         <div id="drinkers" class="col s12">
           <% drinkers.forEach(function(drinker) { %>
@@ -88,7 +23,6 @@
             <div class="card-content white-text">
               <div>
                 <span class="card-title">
-                  <i class="small material-icons">perm_identity</i>
                   <span class="drinker-name"><%= drinker.name %></span>
                   <% if (drinker.cohort) { %><span class="badge white"
                     >SEI <%= drinker.cohort %></span
@@ -103,7 +37,7 @@
                 <% }) %>
               </ul>
               <!-- Add Dynamic UI form below this line -->
-              <% if (student._id.equals(user && user._id)) { %>
+              <% if (drinker._id.equals(user && user._id)) { %>
               <div class="card-action">
                 <form action="/facts" method="POST">
                   <input type="text" name="text" class="white-text" />
@@ -117,5 +51,4 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
+ <%- include('../partials/footer') %>
