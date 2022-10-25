@@ -1,13 +1,10 @@
-const express = require("express");
-var router = express.Router();
+var router = require("express").Router();
+// new code below
 const passport = require("passport");
 
 // The root route renders our only view
-
 router.get("/", function (req, res) {
-  res.render("index", {
-    user: req.user,
-  });
+  res.redirect("/drinkers");
 });
 
 // Google OAuth login route
@@ -27,8 +24,10 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
 }
+
 router.get("/logout", function (req, res) {
   req.logout();
   res.redirect("/");
 });
+
 module.exports = router;

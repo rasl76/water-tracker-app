@@ -19,6 +19,7 @@ header {
   display: flex;
   flex-direction: row;
   gap: 30px;
+  max-width: 100px;
 }
 #login {
   align-self: flex-end;

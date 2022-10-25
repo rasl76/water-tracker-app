@@ -1,6 +1,5 @@
-const express = require("express");
-const router = express.Router();
-const watersCtrl = require("../controllers/waters");
+var router = require("express").Router();
+var watersCtrl = require("../controllers/waters");
 
 router.post("/drinkers/:id/waters", watersCtrl.create);
 

@@ -15,7 +15,6 @@ var drinkerSchema = new mongoose.Schema(
   {
     name: String,
     email: String,
-    avatar: String,
     waters: [waterSchema],
   },
   {
