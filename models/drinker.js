@@ -8,6 +8,7 @@ var waterSchema = new mongoose.Schema(
     text: String,
     volume: Number,
     Date: { type: Date, default: Date.now() },
+    ofObjectId: [{type: mongoose.Schema.Types.ObjectId, ref: "Drinker" }],
   },
   {
     timestamps: true,
