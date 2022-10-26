@@ -34,34 +34,4 @@
           >
         </div>
       </nav>
-
-      <table id="drinkersTable">
-        <thead>
-          <tr>
-            <th>Drinker</th>
-            <th>Age</th>
-            <th>&#129485; or &#127793;</th>
-            <th>.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% drinkers.forEach(function(d) { %>
-          <tr>
-            <td><%= d.name %></td>
-            <td><%= d.age %></td>
-            <td><%= d.human %></td>
-            <td><%= d.waters %></td>
-            <td><a href="/drinkers/<%= d._id %>">Log a drink</a></td>
-            <td><a href="/drinkers/<%= d._id %>">Edit Drinker</a></td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-
-        <div class="drinkerDiv">
-          <a href="/drinkers/new"><button class="drinkerButton">Add a thirsty drinker!</button></a>
-      <div class="">
-      </div>
-    </body>
-  </head>
-</html>
+          <a href="/waters/new"><button type="submit" class="">Add Water</button></a>

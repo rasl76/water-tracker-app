@@ -1,19 +1,14 @@
 var router = require("express").Router();
 var drinkersCtrl = require("../controllers/drinkers");
+const passport = require("passport");
+const { route } = require(".");
 
 // GET /drinkers
-
-// POST /facts
-// We will already have access to the logged in student on
-// the server, therefore do not use: /drinkers/:id/facts
-router.post("/waters", isLoggedIn, drinkersCtrl.addWater);
-
-// DELETE /facts/:id
-var router = require("express").Router();
-// new code below
-const passport = require("passport");
-
 router.get("/", drinkersCtrl.index);
+router.get("/new", drinkersCtrl.newDrinker);
+
+// POST /
+router.post("/waters", isLoggedIn, drinkersCtrl.addWater);
 
 // router.get("/drinkers", drinkersCtrl.index);
 

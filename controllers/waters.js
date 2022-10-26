@@ -1,9 +1,7 @@
-const drinker = require("../models/drinker");
 const Drinker = require("../models/drinker");
 
 function create(req, res) {
-  Drinker.findById(req.params.id, function (err, movie) {
-    // movie as argument is an object.
+  Drinker.findById(req.params.id, function (err, drinker) {
     if (err) return res.render(err.message);
     drinker.waters.push(req.body);
     // pushes the request body, pushes it to the object of 'drinker'
@@ -13,7 +11,11 @@ function create(req, res) {
     });
   });
 }
+function newWater(req, res) {
+  res.render("waters/new", { user: req.user });
+}
 
 module.exports = {
   create,
+  newWater,
 };

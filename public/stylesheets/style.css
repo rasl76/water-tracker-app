@@ -14,6 +14,21 @@ header {
   font-family: "Yeseva One", cursive;
   color: #62afcd;
 }
+/* .drinkDiv {} */
+th {
+  background-color: #62afcd;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+#drinkersTable {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+/* .drinkerButton {} */
+/* #newDrinkerForm {} */
 
 .headerRow {
   display: flex;

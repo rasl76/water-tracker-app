@@ -20,6 +20,7 @@ require("./config/passport");
 var indexRoutes = require("./routes/index");
 var drinkersRoutes = require("./routes/drinkers");
 var watersRoutes = require("./routes/waters");
+// var usersRoutes = require("./routes/users");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -45,6 +46,7 @@ app.use(passport.session());
 app.use("/", indexRoutes);
 app.use("/drinkers", drinkersRoutes);
 app.use("/waters", watersRoutes);
+// app.use("/users", usersRoutes);
 
 // invalid request, send 404 page
 app.use(function (req, res) {

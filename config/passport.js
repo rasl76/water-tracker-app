@@ -1,7 +1,7 @@
 const passport = require("passport");
 
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const Drinker = require("../models/drinker");
+const User = require("../models/user");
 
 passport.use(
   new GoogleStrategy(
@@ -21,20 +21,20 @@ passport.use(
             callbackURL: process.env.GOOGLE_CALLBACK,
           },
           function (accessToken, refreshToken, profile, cb) {
-            Drinker.findOne({ googleId: profile.id }, function (err, drinker) {
+            User.findOne({ googleId: profile.id }, function (err, user) {
               if (err) return cb(err);
-              if (drinker) {
-                return cb(null, drinker);
+              if (user) {
+                return cb(null, user);
               } else {
                 // we have a new student via OAuth!
-                var newDrinker = new Drinker({
+                var newUser = new User({
                   name: profile.displayName,
                   email: profile.emails[0].value,
                   googleId: profile.id,
                 });
-                newDrinker.save(function (err) {
+                newUser.save(function (err) {
                   if (err) return cb(err);
-                  return cb(null, newDrinker);
+                  return cb(null, newUser);
                 });
               }
             });
@@ -44,12 +44,12 @@ passport.use(
     }
   )
 );
-passport.serializeUser(function (drinker, done) {
-  done(null, drinker.id);
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
 });
 
 passport.deserializeUser(function (id, done) {
-  Drinker.findById(id, function (err, drinker) {
-    done(err, drinker);
+  User.findById(id, function (err, user) {
+    done(err, user);
   });
 });

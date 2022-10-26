@@ -23,10 +23,13 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
 }
-
-router.get("/logout", function (req, res) {
-  req.logout();
-  res.redirect("/");
+router.get("/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
 });
 
 module.exports = router;

@@ -34,34 +34,23 @@
           >
         </div>
       </nav>
-
-      <table id="drinkersTable">
-        <thead>
-          <tr>
-            <th>Drinker</th>
-            <th>Age</th>
-            <th>&#129485; or &#127793;</th>
-            <th>.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% drinkers.forEach(function(d) { %>
-          <tr>
-            <td><%= d.name %></td>
-            <td><%= d.age %></td>
-            <td><%= d.human %></td>
-            <td><%= d.waters %></td>
-            <td><a href="/drinkers/<%= d._id %>">Log a drink</a></td>
-            <td><a href="/drinkers/<%= d._id %>">Edit Drinker</a></td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-
-        <div class="drinkerDiv">
-          <a href="/drinkers/new"><button class="drinkerButton">Add a thirsty drinker!</button></a>
-      <div class="">
-      </div>
+      <form
+        id="newDrinkerForm"
+        action="/views/drinkers/index.ejs"
+        method="POST"
+      >
+        <label>Name:</label>
+        <input type="text" name="name" />
+        <label>age:</label>
+        <input type="number" name="age" min="0" max="150" />
+        <label>&#129485; or &#127793;</label>
+        <select name="human">
+          <option value="true">human</option>
+          <option value="false">Plant</option>
+        </select>
+        <label>Waters</label>
+        <input type="submit" value="Add Drinker" />
+      </form>
     </body>
   </head>
 </html>
