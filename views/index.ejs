@@ -1,15 +1,42 @@
-<%- include('../partials/header') %>
-<div class="headerRow">
-  <% if (user) { %>
-  <a href="/logout"
-    ><span class="material-symbols-outlined" id="logout">vpn_key_off</span>Log
-    Out</a
-  >
-  <% } else { %> 
-  <a href="/auth/google"
-    ><span class="material-symbols-outlined" id="login">vpn_key</span>Login with
-    Google</a
-  >
-  <% } %>
-</div>
-<%- include('../partials/footer') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Water Drinkers</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant&family=Playfair+Display+SC:wght@400;700&family=Poiret+One&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <body>
+      <header>
+        <img src="/images/waterdrop.png" max-width="200px" />
+        <div>Water Tracker</div>
+        <img src="/images/waterdrop.png" max-width="200px" />
+      </header>
+      <nav>
+        <div class="headerRow">
+            </div><a href="/"><span class="material-symbols-outlined">Home</span></a></div>
+            </div><a href="" class="brand-logo left">Water Drinkers</a></div>
+          <div class="headerRow">
+            <% if (user) { %>
+            <a href="/logout"
+              ><span class="material-symbols-outlined" id="logout"
+                >vpn_key_off</span
+              >Log Out</a
+            >
+            <% } else { %>
+            <a href="/auth/google"
+              ><span class="material-symbols-outlined" id="login">vpn_key</span
+              >Login with Google</a
+            >
+            <% } %>
+          </div>
+        </div>
+      </nav>
+    </body>
+  </head>
+</html>

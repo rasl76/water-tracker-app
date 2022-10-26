@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongoose");
 var mongoose = require("mongoose");
 
 // The factSchema is used to embedded docs in as student doc.
@@ -5,6 +6,8 @@ var mongoose = require("mongoose");
 var waterSchema = new mongoose.Schema(
   {
     text: String,
+    volume: Number,
+    Date: { type: Date, default: Date.now() },
   },
   {
     timestamps: true,
@@ -14,7 +17,8 @@ var waterSchema = new mongoose.Schema(
 var drinkerSchema = new mongoose.Schema(
   {
     name: String,
-    email: String,
+    age: Number,
+    human: Boolean,
     waters: [waterSchema],
   },
   {

@@ -1,24 +1,54 @@
-<%- include('../partials/header') %>
-<div>
-  <% if (user) { %>
-  <a href="/logout"
-    ><span class="material-symbols-outlined" id="logout">vpn_key_off </span>Log
-    Out</a
-  >
-  <% } else { %>
-  <a href="/auth/google"
-    ><span class="material-symbols-outlined" id="login">vpn_key</span>Login with
-    Google</a
-  >
-  <% } %>
-</div>
-<!-- Add Dynamic UI form below this line -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Water Drinkers</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant&family=Playfair+Display+SC:wght@400;700&family=Poiret+One&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <body>
+      <header>
+        <img src="/images/waterdrop.png" max-width="200px" />
 
-<div class="">
-  <form action="/waters" method="POST">
-    <input type="text" name="text" class="" />
-    <button type="submit" class="">Add Water</button>
-  </form>
-</div>
+        <div>Water Tracker</div>
 
-<%- include('../partials/footer') %>
+        <img src="/images/waterdrop.png" max-width="200px" />
+      </header>
+      <nav>
+        <div class="headerRow">
+          <div>
+            <a href="/"><span class="material-symbols-outlined">Home</span></a>
+            <a href="" class="brand-logo left">Water Drinkers</a>
+          </div>
+        </div>
+      </nav>
+      <div>
+        <% if (drinker) { %>
+        <a href="/logout"
+          ><span class="material-symbols-outlined" id="logout"
+            >vpn_key_off </span
+          >Log Out</a
+        >
+        <% } else { %>
+        <a href="/auth/google"
+          ><span class="material-symbols-outlined" id="login">vpn_key</span
+          >Login with Google</a
+        >
+        <% } %>
+      </div>
+      <!-- Add Dynamic UI form below this line -->
+
+      <div class="">
+        <form action="/waters" method="POST">
+          <input type="text" name="text" class="" />
+          <button type="submit" class="">Add Water</button>
+        </form>
+      </div>
+    </body>
+  </head>
+</html>
