@@ -3,12 +3,13 @@ var drinkersCtrl = require("../controllers/drinkers");
 const passport = require("passport");
 const { route } = require(".");
 
+// POST /
+router.post("/waters", isLoggedIn, drinkersCtrl.addWater);
+router.post("/", drinkersCtrl.create);
+
 // GET /drinkers
 router.get("/", drinkersCtrl.index);
 router.get("/new", drinkersCtrl.newDrinker);
-
-// POST /
-router.post("/waters", isLoggedIn, drinkersCtrl.addWater);
 
 // router.get("/drinkers", drinkersCtrl.index);
 

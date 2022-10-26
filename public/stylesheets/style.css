@@ -1,12 +1,6 @@
-/* .brand-logo {
-  margin-left: 15px;
-}
-
-.card .card-content .card-title {
-  margin-bottom: 10px;
-} */
-
 header {
+  background-image: ("water.jpeg");
+  gap: 25px;
   display: flex;
   justify-content: center;
   font-size: 50px;
@@ -16,25 +10,36 @@ header {
 }
 /* .drinkDiv {} */
 th {
-  background-color: #62afcd;
+  background-color: #90cfe8;
   color: white;
+  padding: 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 #drinkersTable {
-  padding: 15px;
+  padding: 30px;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
-/* .drinkerButton {} */
+.drinkerButton {
+  padding: 25px;
+  background-color: #62afcd;
+  font-family: "Yeseva One", cursive;
+  color: whitesmoke;
+  border-radius: 40px;
+  border: #62afcd;
+}
+.waterButton {
+  padding: 25px;
+  background-color: #62afcd;
+  font-family: "Yeseva One", cursive;
+  color: whitesmoke;
+}
 /* #newDrinkerForm {} */
 
-.headerRow {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-}
 #login {
   align-self: flex-end;
 }
@@ -46,6 +51,9 @@ log in button {
 }
 body {
   font-family: "Cormorant", serif;
+}
+nav {
+  background-color: #62afcd;
 }
 
 #search-row form {

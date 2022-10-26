@@ -12,7 +12,12 @@ module.exports = {
 function index(req, res) {
   console.log(req.drinker);
   Drinker.find({}, function (err, drinkers) {
-    res.render("drinkers/index", { title: "All Drinkers", drinkers });
+    res.render("drinkers/index", {
+      title: "All Drinkers",
+      drinkers,
+      user: req.user,
+    });
+
     // res.render("drinkers/index", { drinker: req.water,});
   });
 }
@@ -26,12 +31,10 @@ function create(req, res) {
   drinker.save(function (err) {
     if (err) return res.redirect("/drinkers/new");
     // res.redirect(`/drinkers/${drinker._id}`);
-    res.redirect("/drinkers/index");
+    res.redirect("/drinkers");
   });
 }
 // function to edit/update drink information
-
-
 
 // to go to the 'log' of this drinker
 function show(req, res) {

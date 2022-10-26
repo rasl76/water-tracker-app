@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Water Tracker</title>
-    <link rel="stylesheet" href="stylesheets/style.css" />
+   
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant&family=Playfair+Display+SC:wght@400;700&family=Poiret+One&family=Yeseva+One&display=swap"
       rel="stylesheet"
@@ -11,12 +11,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+       <link rel="stylesheet" href="/stylesheets/style.css" />
     <body>
       <header>
         <img src="/images/waterdrop.png" max-width="200px" />
-
         <div>Water Tracker</div>
-
         <img src="/images/waterdrop.png" max-width="200px" />
       </header>
       <nav>
@@ -36,7 +35,7 @@
       </nav>
       <form
         id="newDrinkerForm"
-        action="/views/drinkers/index.ejs"
+        action="/drinkers"
         method="POST"
       >
         <label>Name:</label>
@@ -45,8 +44,8 @@
         <input type="number" name="age" min="0" max="150" />
         <label>&#129485; or &#127793;</label>
         <select name="human">
-          <option value="true">human</option>
-          <option value="false">Plant</option>
+          <option value="true">&#129485</option>
+          <option value="false">&#127793</option>
         </select>
         <label>Waters</label>
         <input type="submit" value="Add Drinker" />
