@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 // There is no model and no 'facts' collection
 var waterSchema = new Schema(
   {
-    text: String,
     volume: Number,
     Date: { type: Date, default: Date.now() },
+    text: String,
     // drinkers: [drinkerSchema],
   },
   {

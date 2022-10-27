@@ -1,3 +1,4 @@
+
 // function to verify if here is a user matching oath user
 // to seperate the user from the drinkers
 // search for name in database

@@ -26,7 +26,7 @@
     <body>
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo right"> U+E331 </a>
+          <a href="#" class="brand-logo right"> &#128166;</a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li>
               <% if (user) { %>
@@ -42,18 +42,22 @@
           </ul>
         </div>
       </nav>
-      <p></p>
-      <header class="homepage">
-        <img src="/images/waterdrop.png" max-width="200px" />
-        <div>Water Tracker</div>
-        <img src="/images/waterdrop.png" max-width="200px" />
-      </header>
-      <main>
-        <p>
-          The app to help you keep track how much water you and your plant
-          babies are drinking.
-        </p>
-      </main>
+      <div id="homepageDiv">
+        <header class="homepage">Water Tracker</header>
+        <main>
+          <div id="emojiRow">
+            <h1>&#128166;</h1>
+            <h2>&#127793;</h2>
+            <h1>&#128167;</h1>
+            <h2>&#129485;</h2>
+            <h1>&#128166;</h1>
+          </div>
+          <p>
+            The app to help you keep track how much water you&#129485; and your
+            plant babies &#127793;&#127793;are drinking.
+          </p>
+        </main>
+      </div>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>

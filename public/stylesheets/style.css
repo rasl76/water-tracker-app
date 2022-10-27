@@ -1,19 +1,27 @@
 body {
-  display: grid;
   font-family: "Cormorant", serif;
 }
 nav {
-  background-color: #62afcd;
+  background-color: #90cfe8;
   font-family: "Exo 2", sans-serif;
 }
 header {
-  gap: 25px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
   font-size: 50px;
-  height: 50px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
   font-family: "Yeseva One", cursive;
-  color: #62afcd;
+  color: #90cfe8;
+}
+#homepageDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 500px;
 }
 .homepage {
   gap: 25px;
@@ -22,27 +30,75 @@ header {
   font-family: "Yeseva One", cursive;
   color: #62afcd;
 }
+#emojiRow {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  font-size: 20px;
+  padding: 15px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* #tableDiv {
+  align-self: center;
+  justify-self: center;
+  align-content: center;
+} */
 /* .drinkDiv {} */
 th {
   background-color: #90cfe8;
   color: white;
-  padding: 30px;
-  font-size: 20px;
+  padding: 25px;
+  font-family: "Lato", sans-serif;
+  font-size: 25px;
   font-weight: bold;
 }
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+td {
+  font-size: 18px;
+  text-align: center;
+  padding: 15px;
+  margin: 20px;
+}
+.blank > td {
+  background-color: default;
+}
+.blankH > th {
+  background-color: default;
+  margin: 20px;
+}
+.deleteButton {
+  padding: 20px;
+  background-color: #90cfe8;
+  color: white;
+  border-radius: 30px;
+  border: 1px solid #e0e0e0;
+}
 #drinkersTable {
-  padding: 30px;
+  /* max-width: 90%;
+  max-height: 80%; */
+  padding: 45px;
+  justify-self: center;
+  align-self: center;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
 .drinkerButton {
+  margin-top: 15px;
   padding: 25px;
-  background-color: #62afcd;
+  background-color: #90cfe8;
   font-family: "Yeseva One", cursive;
-  color: whitesmoke;
+  color: white;
   border-radius: 40px;
   border: #62afcd;
 }
@@ -52,10 +108,11 @@ tr:nth-child(even) {
   font-family: "Yeseva One", cursive;
   color: whitesmoke;
 }
-/* #newDrinkerForm {} */
-
-#search-row form {
-  padding-top: 20px;
+#newDrinkerForm {
+  padding: 30px;
+  border: 1px solid #ddd;
+  color: #90cfe8;
+  font-size: 20px;
 }
 
 .drinker-name {
