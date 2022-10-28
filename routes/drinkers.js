@@ -12,10 +12,14 @@ router.post("/", drinkersCtrl.create);
 router.get("/", drinkersCtrl.index);
 router.get("/new", drinkersCtrl.newDrinker);
 router.get("/:id", drinkersCtrl.show);
+router.get("/:id/edit", drinkersCtrl.editDrinker);
 
 // DELETE
 router.delete("/waters/:id", watersCtrl.delWater);
 router.delete("/:id", drinkersCtrl.delDrinker);
+
+// PUT
+router.put("/:id", drinkersCtrl.updateDrinker);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

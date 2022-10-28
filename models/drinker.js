@@ -21,7 +21,7 @@ var drinkerSchema = new Schema(
     age: Number,
     human: Boolean,
     waters: [waterSchema],
-    user: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: true,

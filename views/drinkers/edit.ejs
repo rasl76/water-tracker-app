@@ -46,11 +46,17 @@
       <main>
         <div class="newDiv"></div>
         <div id="newDrinkerForm">
-          <form action="/drinkers" method="POST">
+          <form action="/drinkers/<%=drinker._id%>?_method=PUT" method="POST">
             <label>Name:</label>
-            <input type="text" name="name" />
+            <input type="text" name="name" value="<%=drinker.name%>" />
             <label>age:</label>
-            <input type="number" name="age" min="0" max="150" />
+            <input
+              type="number"
+              name="age"
+              min="0"
+              max="150"
+              value="<%=drinker.age%>"
+            />
             <label>&#129485; or &#127793;</label>
             <select name="human">
               <option value="true">&#129485;</option>

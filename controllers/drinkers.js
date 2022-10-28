@@ -11,6 +11,8 @@ module.exports = {
   newDrinker,
   show,
   delDrinker,
+  updateDrinker,
+  editDrinker,
 };
 //displays all drinkers
 function index(req, res) {
@@ -35,29 +37,36 @@ function newDrinker(req, res) {
   });
 }
 //creates a new drinker and redirects back to drinkers index
-function create(req, res) {
-  const drinker = new Drinker(req.body);
-    Drinker.find({}, function (err, drinkers) { 
-    user.drinkers.push
-
-      user: req.user,
-    });
-  drinker.save(function (err) {
-    if (err) return res.redirect("/drinkers/new");
-    // res.redirect(`/drinkers/${drinker._id}`);
-    res.redirect("/drinkers");
-  });
+async function create(req, res) {
+  console.log("in create");
+  req.body.user = req.user._id;
+  const drinker = await Drinker.create(req.body);
+  res.redirect("/drinkers");
+  // const drinker = new Drinker(req.body);
+  // Drinker.findById(req.params.id, function (err, drinker) {
+  //   user.drinker.push(req.body.drinkerId);
+  //   drinker.save(function (err) {
+  //     if (err) return res.redirect("/drinkers/new");
+  //     res.redirect("/drinkers");
+  //   });
+  // });
 }
 // function to edit/update/
+
+function editDrinker(req, res) {
+  Drinker.findById(req.params.id, function (err, drinker) {
+    if (err) console.log(err);
+    res.render("drinkers/edit", { title: "Drinker", drinker, user: req.user });
+  });
+}
+
 // function to delete drinker information
 
 function delDrinker(req, res) {
   console.log(req.user);
-  Drinker.findByIdAndRemove(req.user._id, function (err, drinker) {
+  Drinker.findOneAndDelete({ user: req.user._id }, function (err, drinker) {
     console.log(drinker);
     if (err) console.log(err);
-    return res.redirect("/drinkers");
-    // res.redirect(`/drinkers/${drinker._id}`);
     res.redirect("/drinkers");
   });
 }
@@ -69,3 +78,11 @@ function show(req, res) {
     res.render("drinkers/show", { title: "Drinker", drinker, user: req.user });
   });
 }
+
+function updateDrinker(req, res) {
+  Drinker.findByIdAndUpdate(req.params.id, req.body, function (err, drinker) {
+    if (err) console.log(err);
+    res.redirect("/drinkers");
+  });
+}
+

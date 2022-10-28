@@ -44,28 +44,19 @@
       </nav>
       <header>Add a Drinker</header>
       <main>
-        <div class="newDiv"></div>
-        <div id="newDrinkerForm">
-          <form action="/drinkers" method="POST">
-            <label>Name:</label>
-            <input type="text" name="name" />
-            <label>age:</label>
-            <input type="number" name="age" min="0" max="150" />
-            <label>&#129485; or &#127793;</label>
-            <select name="human">
-              <option value="true">&#129485;</option>
-              <option value="false">&#127793;</option>
-            </select>
-            <label>Waters</label>
-            <a href="/drinkers/show"
-              ><button
-                class="drinkerFormButton"
-                type="submit"
-                value="Add Drinker"
-              ></button
-            ></a>
-          </form>
-        </div>
+        <form
+          id="logWaterForm"
+          action="/show.ejs<%=water._id%>?_method=PUT"
+          method="POST"
+        >
+          <label>How much(ml)?</label>
+          <input type="number" name="volume" value="<%=water.volume%>" />
+          <label>Date:</label>
+          <input type="datetime-local" name="Date" value="water.Date" />
+          <label>How does it feel?</label>
+          <input type="text" name="name" value="<%=water.text%>" />
+          <input class="waterFromButton" type="submit" value="Log Water" />
+        </form>
       </main>
     </body>
   </head>

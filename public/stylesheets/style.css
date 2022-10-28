@@ -114,6 +114,12 @@ td {
   color: #90cfe8;
   font-size: 20px;
 }
+.drinkerFormButton > {
+  padding: 30px;
+  width: 150px;
+  color: white;
+  background-color: #90cfe8;
+}
 
 .drinker-name {
   position: relative;
