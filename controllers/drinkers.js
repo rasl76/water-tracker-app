@@ -64,7 +64,7 @@ function editDrinker(req, res) {
 
 function delDrinker(req, res) {
   console.log(req.user);
-  Drinker.findOneAndDelete({ user: req.user._id }, function (err, drinker) {
+  Drinker.findOneAndDelete({ user: req.user.id }, function (err, drinker) {
     console.log(drinker);
     if (err) console.log(err);
     res.redirect("/drinkers");
