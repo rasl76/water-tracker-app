@@ -14,6 +14,7 @@ router.get("/new", drinkersCtrl.newDrinker);
 router.get("/:id", drinkersCtrl.show);
 router.get("/:id/edit", drinkersCtrl.editDrinker);
 
+
 // DELETE
 router.delete("/waters/:id", watersCtrl.delWater);
 router.delete("/:id", drinkersCtrl.delDrinker);

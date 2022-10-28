@@ -5,16 +5,18 @@ const passport = require("passport");
 const { route } = require(".");
 
 // POST /
-router.post("/drinkers/:id/waters", watersCtrl.create);
+router.post("/:id/waters", watersCtrl.create);
+router.post("/drinkers/show", watersCtrl.create);
 
-// GET /drinkers
-router.get("/new", watersCtrl.newWater);
+// GET / water log
+router.get("/log", watersCtrl.newWater);
+router.get("/editlog", watersCtrl.newUpdate);
 // router.get("/:id", drinkersCtrl.show);
 
 // DELETE
 router.delete("/waters/:id", watersCtrl.delWater);
 
 // PUT
-router.put("/:id", drinkersCtrl.updateLog);
+router.put("/log/:id", watersCtrl.updateLog);
 
 module.exports = router;

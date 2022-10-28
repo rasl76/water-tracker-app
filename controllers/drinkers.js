@@ -3,7 +3,7 @@
 // one dot in require("../models/drinker") would only give
 // me access to other controller js files
 const Drinker = require("../models/drinker");
-const user = require("../models/user");
+const User = require("../models/user");
 
 module.exports = {
   create,
@@ -78,11 +78,10 @@ function show(req, res) {
     res.render("drinkers/show", { title: "Drinker", drinker, user: req.user });
   });
 }
-
+// function to edit/update drinker information
 function updateDrinker(req, res) {
   Drinker.findByIdAndUpdate(req.params.id, req.body, function (err, drinker) {
     if (err) console.log(err);
     res.redirect("/drinkers");
   });
 }
-

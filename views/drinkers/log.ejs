@@ -42,25 +42,17 @@
           </ul>
         </div>
       </nav>
-      <header>&#128166;Log your water!&#128166;</header>
+      <header>&#128166;Water Log!&#128166;</header>
       <main>
-    <table id="waterTable">
-        <thead>
-          <tr>
-            <th>Water Log</th>
-            <th>Date</th>
-            <th>Feelings</th>
-          </tr>
-        </thead>
-        <tbody
-            <tr>
-            <td><%= water.volume %></td>
-            <td><%= water.Date %></td>
-            <td><%= water.text %></td>
-            <td class="blank"><form action="/show/?_method=DELETE" method="POST"><button type="submit" class="deleteButton">X</button></td>
-            </tr>
-        </tbody>
-      </table>
+        <form id="logWaterForm" action="/show.ejs" method="POST">
+          <label>How much(ml)?</label>
+          <input type="number" name="volume" />
+          <label>Date:</label>
+          <input type="datetime-local" name="Date" value="" />
+          <label>How does it feel?</label>
+          <input type="text" name="text" />
+          <input class="waterFromButton" type="submit" value="Log Water" />
+        </form>
       </main>
     </body>
   </head>
