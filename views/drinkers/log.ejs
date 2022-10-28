@@ -11,7 +11,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-
     <!-- JavaScript for Materialize -->
 
     <link
@@ -30,9 +29,7 @@
           <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li>
               <% if (user) { %>
-              <a href="/logout"
-                ><i class="material-icons left">trending_flat</i>Log Out</a
-              >
+              <a href="/logout"><i class="material-icons left"></i>Log Out</a>
               <% } else { %>
               <a href="/auth/google"
                 ><i class="material-icons left">vpn_key</i>Login with Google</a
@@ -44,7 +41,7 @@
       </nav>
       <header>&#128166;Water Log!&#128166;</header>
       <main>
-        <form id="logWaterForm" action="/show.ejs" method="POST">
+        <form id="logWaterForm" action="/:id/log" method="POST">
           <label>How much(ml)?</label>
           <input type="number" name="volume" />
           <label>Date:</label>

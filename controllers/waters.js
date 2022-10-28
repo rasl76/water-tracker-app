@@ -1,9 +1,9 @@
 const Drinker = require("../models/drinker");
 
 //redirects to log.ejs to create a log a water entry
-function newWater(req, res) {
-  res.render("/drinkers/log", { user: req.user });
-}
+// function newWater(req, res) {
+//   res.render("/drinkers/log", { user: req.user });
+// }
 //redirects to editlog.ejs to update a drinking entry
 function newUpdate(req, res) {
   res.render("/drinkers/editlog", { user: req.user });
@@ -11,11 +11,12 @@ function newUpdate(req, res) {
 
 //creates a water entry and redirects back to show.ejs
 function create(req, res) {
-  Drinker.findById(req.params.id, function (err, water) {
+  console.log("test");
+  Drinker.findById(req.params.id, function (err, drinker) {
     drinker.waters.push(req.body);
     // pushes the request body, pushes it to the object of 'drinker'
     drinker.save(function (err) {
-      res.redirect("/drinkers/show");
+      res.render("drinkers/show");
       //   it takes us back to the show page
     });
   });
@@ -41,7 +42,7 @@ function updateLog(req, res) {
 
 module.exports = {
   create,
-  newWater,
+  // newWater,
   newUpdate,
   delWater,
   updateLog,

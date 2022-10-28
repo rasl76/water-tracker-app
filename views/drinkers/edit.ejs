@@ -2,11 +2,9 @@
 <html>
   <head>
     <title>Drinkers</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+
     <!-- Materialize CSS Framework -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -30,9 +28,7 @@
           <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li>
               <% if (user) { %>
-              <a href="/logout"
-                ><i class="material-icons left">trending_flat</i>Log Out</a
-              >
+              <a href="/logout"><i class="material-icons left"></i>Log Out</a>
               <% } else { %>
               <a href="/auth/google"
                 ><i class="material-icons left">vpn_key</i>Login with Google</a
@@ -44,33 +40,39 @@
       </nav>
       <header>Add a Drinker</header>
       <main>
-        <div class="newDiv"></div>
-        <div id="newDrinkerForm">
-          <form action="/drinkers/<%=drinker._id%>?_method=PUT" method="POST">
-            <label>Name:</label>
-            <input type="text" name="name" value="<%=drinker.name%>" />
-            <label>age:</label>
-            <input
-              type="number"
-              name="age"
-              min="0"
-              max="150"
-              value="<%=drinker.age%>"
-            />
-            <label>&#129485; or &#127793;</label>
-            <select name="human">
-              <option value="true">&#129485;</option>
-              <option value="false">&#127793;</option>
-            </select>
-            <label>Waters</label>
-            <a href="/drinkers/show"
-              ><button
-                class="drinkerFormButton"
-                type="submit"
-                value="Add Drinker"
-              ></button
-            ></a>
-          </form>
+        <div class="newDiv">
+          <div>
+            <form
+              id="newDrinkerForm"
+              action="/drinkers/<%=drinker._id%>?_method=PUT"
+              method="POST"
+            >
+              <label>Name:</label>
+              <input type="text" name="name" value="<%=drinker.name%>" />
+              <label>age:</label>
+              <input
+                type="number"
+                name="age"
+                min="0"
+                max="150"
+                value="<%=drinker.age%>"
+              />
+              <label>&#129485; or &#127793;</label>
+              <select class="selectBigger" name="human">
+                <option value="true">&#129485;</option>
+                <option value="false">&#127793;</option>
+              </select>
+              <a href="/drinkers/show"
+                ><button
+                  class="waterFromButton"
+                  type="submit"
+                  value="Add Drinker"
+                >
+                  Update
+                </button></a
+              >
+            </form>
+          </div>
         </div>
       </main>
     </body>

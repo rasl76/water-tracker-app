@@ -84,7 +84,7 @@ td {
   border-radius: 30px;
   border: 1px solid #e0e0e0;
 }
-#drinkersTable {
+.drinkersTable {
   /* max-width: 90%;
   max-height: 80%; */
   padding: 45px;
@@ -108,20 +108,49 @@ td {
   font-family: "Yeseva One", cursive;
   color: whitesmoke;
 }
-#newDrinkerForm {
+
+.waterFromButton {
+  margin-top: 15px;
+  padding: 25px;
+  background-color: #90cfe8;
+  font-family: "Yeseva One", cursive;
+  color: white;
+  border-radius: 40px;
+  border: #62afcd;
+}
+
+#logWaterForm {
   padding: 30px;
   border: 1px solid #ddd;
   color: #90cfe8;
   font-size: 20px;
+  margin: 30px;
 }
-.drinkerFormButton > {
+#newDrinkerForm {
   padding: 30px;
-  width: 150px;
-  color: white;
-  background-color: #90cfe8;
+  border: 1px solid #ddd;
+  color: black;
+  font-size: 30px;
+  margin: 30px;
+}
+.selectBigger {
+  margin: 15 px;
+  font-size: 30px;
 }
 
 .drinker-name {
   position: relative;
   top: -5px;
+}
+.newDiv {
+  padding: 30px;
+  border: 1px solid #ddd;
+  color: #90cfe8;
+  font-size: 20px;
+}
+.getBig {
+  padding: 30px;
+  border: 1px solid #ddd;
+  color: #90cfe8;
+  font-size: 20px;
 }

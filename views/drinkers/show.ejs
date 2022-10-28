@@ -44,7 +44,8 @@
       </nav>
       <header>&#128166;Log your water!&#128166;</header>
       <main>
-    <table id="waterTable">
+      <div class="tableDiv">
+      <table class="drinkersTable">
         <thead>
           <tr>
             <th>Water Log</th>
@@ -52,15 +53,18 @@
             <th>Feelings</th>
           </tr>
         </thead>
-        <tbody
+        <tbody>
+             <% water.forEach(function(w) { %>
             <tr>
-            <td><%= water.volume %></td>
-            <td><%= water.Date %></td>
-            <td><%= water.text %></td>
+            <td><%= w.volume %></td>
+            <td><%= w.Date %></td>
+            <td><%= w.text %></td>
             <td class="blank"><form action="/show/?_method=DELETE" method="POST"><button type="submit" class="deleteButton">X</button></td>
             </tr>
+            <% }); %>
         </tbody>
       </table>
+      </div>
       </main>
     </body>
   </head>

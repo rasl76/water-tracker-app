@@ -75,7 +75,12 @@ function delDrinker(req, res) {
 function show(req, res) {
   Drinker.findById(req.params.id, function (err, drinker) {
     if (err) console.log(err);
-    res.render("drinkers/show", { title: "Drinker", drinker, user: req.user });
+    res.render("drinkers/log", {
+      title: "Drinker",
+      drinker,
+      water: [],
+      user: req.user,
+    });
   });
 }
 // function to edit/update drinker information

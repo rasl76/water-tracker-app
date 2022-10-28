@@ -42,19 +42,19 @@
           </ul>
         </div>
       </nav>
-      <header>Add a Drinker</header>
+      <header>Update your water log entry!</header>
       <main>
         <form
           id="logWaterForm"
-          action="/show.ejs<%=water._id%>?_method=PUT"
+          action="/show.ejs<%=w._id%>?_method=PUT"
           method="POST"
         >
           <label>How much(ml)?</label>
-          <input type="number" name="volume" value="<%=water.volume%>" />
+          <input class="getBig" type="number" name="volume" value="<%=w.volume%>" />
           <label>Date:</label>
-          <input type="datetime-local" name="Date" value="water.Date" />
+          <input class="getBig" type="datetime-local" name="Date" value="<%=w.Date" />
           <label>How does it feel?</label>
-          <input type="text" name="text" value="<%=water.text%>" />
+          <input class="getBig" type="text" name="text" value="<%=w.text%>" />
           <input class="waterFromButton" type="submit" value="Log Water" />
         </form>
       </main>

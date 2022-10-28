@@ -5,13 +5,14 @@ const passport = require("passport");
 const { route } = require(".");
 
 // POST /
-router.post("/:id/waters", watersCtrl.create);
-router.post("/drinkers/show", watersCtrl.create);
+router.post("/:id/log", watersCtrl.create);
+// router.post("/show", drinkersCtrl.create);
 
 // GET / water log
-router.get("/log", watersCtrl.newWater);
+// router.get("/:id/log", watersCtrl.newWater);
 router.get("/editlog", watersCtrl.newUpdate);
-// router.get("/:id", drinkersCtrl.show);
+router.get("/:id/editlog", watersCtrl.updateLog);
+router.get("/:id", drinkersCtrl.show);
 
 // DELETE
 router.delete("/waters/:id", watersCtrl.delWater);
