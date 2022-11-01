@@ -17,7 +17,7 @@ function show(req, res) {
   Drinker.findById(req.params.id, function (err, drinker) {
     if (err) console.log(err);
     console.log(drinker)
-    res.render(`/waters/${req.params.id}`, {
+    res.render("waters/index", {
       title: "Drinker",
       drinker,
       water: [],
