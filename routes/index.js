@@ -8,6 +8,7 @@ router.get("/", indexCtrl.index);
 
 // Google OAuth login route
 router.get(
+  console.log("authtest"),
   "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
