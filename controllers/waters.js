@@ -16,11 +16,11 @@ function newWater(req, res) {
 function show(req, res) {
   Drinker.findById(req.params.id, function (err, drinker) {
     if (err) console.log(err);
-    console.log(drinker)
+    console.log(drinker);
     res.render("waters/index", {
       title: "Drinker",
       drinker,
-      water: [],
+      water: drinker.waters,
       user: req.user,
     });
   });
