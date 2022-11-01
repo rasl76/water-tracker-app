@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <body>
       <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo right">Water Tracker&#128166;</a>
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Water Tracker&#128166;</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li>
               <% if (user) { %>
               <a href="/logout"
                 ><i class="material-icons left">trending_flat</i>Log Out</a
@@ -32,46 +32,43 @@
                 ><i class="material-icons left">vpn_key</i>Login with Google</a
               >
               <% } %>
-            </li>
           </ul>
         </div>
       </nav>
       <header>Drinkers</header>
-    <main>
+      <main>
       <div class="tableDiv">
-      <table class="drinkersTable">
-        <thead>
-          <tr>
-            <th>Drinker</th>
-            <th>Age</th>
-            <th>&#129485; or &#127793;</th>
-            <th></th>
-            <th class="blankH"></th>
-            <th class="blankH"></th>
-            <th class="blankH"></th>
-          </tr>
-        </thead>
-        <tbody>
+        <table class="drinkersTable">
+          <thead>
+            <tr>
+              <th>Drinker</th>
+              <th>Age</th>
+              <th>&#129485; or &#127793;</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
           <% drinkers.forEach(function(d) { %>
-          <tr>
-            <td><%= d.name %></td>
-            <td><%= d.age %></td>
-            <td><% if(d.human){ %>
+            <tr>
+              <td><%= d.name %></td>
+              <td><%= d.age %></td>
+              <td><% if(d.human){ %>
               <h2>&#129485;</h2>
               <% } else{ %>  
               <h2>&#127793;</h2>
               <% } %> </td>
-            <td><%= d.waters %></td>
-            <td class="blank"><a href="/drinkers/<%= d._id %>">&#128167; Log</a></td>
-            <td class="blank"><a href="/drinkers/<%= d._id %>/edit">Edit<br />Drinker</a></td>
-            <td class="blank"><form action="/drinkers/<%=d._id%>?_method=DELETE" method="POST">
+            <td><a href="/waters/<%= d._id %>/log">&#128167; Log</a></td>
+            <td><a href="/drinkers/<%= d._id %>/edit"><button class="edit" type="submit">Edit<br />Drinker</a></button></td>
+            <td><form action="/drinkers/<%=d._id%>?_method=DELETE" method="POST">
       <button type="submit" class="deleteButton">X</button>
     </form></td>
           </tr>
           <% }); %>
         </tbody>
       </table>
-</div>
+    </div>
         <div class="drinkerDiv">
           <a href="/drinkers/new"><button class="drinkerButton">Add a <br />thirsty 
             <br />

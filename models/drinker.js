@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 var waterSchema = new Schema(
   {
     volume: Number,
-    Date: { type: Date, default: Date.now() },
     text: String,
     // drinkers: [drinkerSchema],
   },

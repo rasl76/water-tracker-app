@@ -1,33 +1,58 @@
 const Drinker = require("../models/drinker");
 
 //redirects to log.ejs to create a log a water entry
-// function newWater(req, res) {
-//   res.render("/drinkers/log", { user: req.user });
-// }
-//redirects to editlog.ejs to update a drinking entry
-function newUpdate(req, res) {
-  res.render("/drinkers/editlog", { user: req.user });
-}
-
-//creates a water entry and redirects back to show.ejs
-function create(req, res) {
-  console.log("test");
+function newWater(req, res) {
   Drinker.findById(req.params.id, function (err, drinker) {
-    drinker.waters.push(req.body);
-    // pushes the request body, pushes it to the object of 'drinker'
-    drinker.save(function (err) {
-      res.render("drinkers/show");
-      //   it takes us back to the show page
+    if (err) console.log(err);
+    res.render("waters/log", {
+      title: "Drinker",
+      drinker,
+      user: req.user,
     });
   });
 }
 
+// to go to the 'log' of this drinker
+function show(req, res) {
+  Drinker.findById(req.params.id, function (err, drinker) {
+    if (err) console.log(err);
+    console.log(drinker)
+    res.render(`/waters/${req.params.id}`, {
+      title: "Drinker",
+      drinker,
+      water: [],
+      user: req.user,
+    });
+  });
+}
+
+//redirects to editlog.ejs to update a drinking entry
+function newUpdate(req, res) {
+  res.render("editlog", { user: req.user });
+}
+
+//creates a water entry and redirects back to show.ejs
+function create(req, res) {
+  Drinker.findById(req.params.id, function (err, drinker) {
+    let water = { volume: req.body.volume, text: req.body.text };
+    drinker.waters.push(water);
+    // pushes the request body, pushes it to the object of 'drinker'
+    drinker.save(function (err) {
+      // res.redirect("/waters/show");
+      console.log("water");
+      res.redirect(`/waters/${req.params.id}`);
+      //   it takes us back to the show page
+    });
+  });
+}
+// waters/show/${req.params.id}
+
 // function to delete log
-function delWater(req, res, next) {
+function delWater(req, res) {
   Water.findOneAndDelete({ _id: req.params.waterID }, function (err, water) {
-    if (err) return res.redirect("/show");
+    if (err) return res.redirect("/");
     // res.redirect(`/drinkers/${drinker._id}`);
-    res.render("/show");
+    res.render("show");
   });
 }
 
@@ -42,8 +67,9 @@ function updateLog(req, res) {
 
 module.exports = {
   create,
-  // newWater,
+  newWater,
   newUpdate,
   delWater,
   updateLog,
+  show,
 };

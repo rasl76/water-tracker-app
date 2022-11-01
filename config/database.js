@@ -6,6 +6,7 @@ mongoose.connect(process.env.DATABASE_URL, {
   useCreateIndex: true
 });
 
+
 const db = mongoose.connection;
 
 // database connection event

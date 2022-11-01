@@ -3,7 +3,9 @@ body {
 }
 nav {
   background-color: #90cfe8;
+  color: white;
   font-family: "Exo 2", sans-serif;
+  padding-bottom: 20px;
 }
 header {
   display: flex;
@@ -56,29 +58,27 @@ main {
 th {
   background-color: #90cfe8;
   color: white;
-  padding: 25px;
-  font-family: "Lato", sans-serif;
-  font-size: 25px;
+  padding: 15px;
+  font-family: "Yeseva One", cursive;
+  font-size: 16px;
   font-weight: bold;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
 }
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 td {
-  font-size: 18px;
+  font-size: 14pxpx;
   text-align: center;
-  padding: 15px;
-  margin: 20px;
+  padding: 10px;
+  margin: 10px;
 }
-.blank > td {
-  background-color: default;
-}
-.blankH > th {
-  background-color: default;
-  margin: 20px;
-}
+
 .deleteButton {
-  padding: 20px;
+  font-size: 12px;
+  padding: 24px;
   background-color: #90cfe8;
   color: white;
   border-radius: 30px;
@@ -87,7 +87,7 @@ td {
 .drinkersTable {
   /* max-width: 90%;
   max-height: 80%; */
-  padding: 45px;
+  padding: 30px;
   justify-self: center;
   align-self: center;
   text-align: center;
@@ -110,7 +110,16 @@ td {
 }
 
 .waterFromButton {
-  margin-top: 15px;
+  margin: 25px;
+  padding: 25px;
+  background-color: #90cfe8;
+  font-family: "Yeseva One", cursive;
+  color: white;
+  border-radius: 40px;
+  border: #62afcd;
+}
+#editFromButton {
+  margin: 25px;
   padding: 25px;
   background-color: #90cfe8;
   font-family: "Yeseva One", cursive;
@@ -132,6 +141,7 @@ td {
   color: black;
   font-size: 30px;
   margin: 30px;
+  gap: 10px;
 }
 .selectBigger {
   margin: 15 px;
@@ -142,15 +152,25 @@ td {
   position: relative;
   top: -5px;
 }
-.newDiv {
-  padding: 30px;
-  border: 1px solid #ddd;
-  color: #90cfe8;
-  font-size: 20px;
-}
+/*  */
 .getBig {
   padding: 30px;
   border: 1px solid #ddd;
   color: #90cfe8;
   font-size: 20px;
+}
+input {
+  padding: 10px;
+}
+label {
+  margin: 20px;
+}
+.edit {
+  border-radius: 40px;
+  padding: 15px;
+  margin: 20px;
+  border: 1px solid #90cfe8;
+  background-color: white;
+  color: #90cfe8;
+  font-family: "Cormorant", serif;
 }

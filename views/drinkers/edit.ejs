@@ -22,56 +22,48 @@
     <body>
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo right">Water Tracker&#128166;</a>
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li>
-              <% if (user) { %>
-              <a href="/logout"><i class="material-icons left"></i>Log Out</a>
-              <% } else { %>
-              <a href="/auth/google"
-                ><i class="material-icons left">vpn_key</i>Login with Google</a
-              >
-              <% } %>
-            </li>
-          </ul>
+          <div>Water Tracker&#128166;</div>
+          <div id="nav-mobile" class="left hide-on-med-and-down">
+            <% if (user) { %>
+            <a href="/logout"><i class="material-icons left"></i>Log Out</a>
+            <% } else { %>
+            <a href="/auth/google"
+              ><i class="material-icons left">vpn_key</i>Login with Google</a
+            >
+            <% } %>
+          </div>
         </div>
       </nav>
       <header>Edit a Drinker</header>
+
       <main>
-        <div class="newDiv">
-          <div>
-            <form
-              id="newDrinkerForm"
-              action="/drinkers/<%=drinker._id%>?_method=PUT"
-              method="POST"
-            >
-              <label>Name:</label>
-              <input type="text" name="name" value="<%=drinker.name%>" />
-              <label>age:</label>
-              <input
-                type="number"
-                name="age"
-                min="0"
-                max="150"
-                value="<%=drinker.age%>"
-              />
-              <label>&#129485; or &#127793;</label>
-              <select class="selectBigger" name="human">
-                <option value="true">&#129485;</option>
-                <option value="false">&#127793;</option>
-              </select>
-              <a href="/drinkers/show"
-                ><button
-                  class="waterFromButton"
-                  type="submit"
-                  value="Add Drinker"
-                >
-                  Update
-                </button></a
-              >
-            </form>
-          </div>
-        </div>
+        <form
+          id="newDrinkerForm"
+          action="/drinkers/<%=drinker._id%>?_method=PUT"
+          method="POST"
+        >
+          <label>Name:</label>
+          <input type="text" name="name" value="<%=drinker.name%>" />
+          <label>age:</label>
+          <input
+            type="number"
+            name="age"
+            min="0"
+            max="150"
+            value="<%=drinker.age%>"
+          />
+          <label> &#129485; or &#127793; </label>
+          <select class="selectBigger" name="human">
+            <option value="true">&#129485;</option>
+            <option value="false">&#127793;</option>
+          </select>
+            <a href="/drinkers/"
+            ><button 
+            id="editFromButton" 
+            type="submit" 
+            value="Edit Drinker">
+              Update</a
+          ></form>
       </main>
     </body>
   </head>

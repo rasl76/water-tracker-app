@@ -41,11 +41,13 @@
       </nav>
       <header>&#128166;Log Your Water! &#128166;</header>
       <main>
-        <form id="logWaterForm" action="/:id/log" method="POST">
+        <form
+          id="logWaterForm"
+          action="/waters/<%=drinker._id%>"
+          method="POST"
+        >
           <label>How much(ml)?</label>
           <input type="number" name="volume" />
-          <label>Date:</label>
-          <input type="datetime-local" name="Date" value="" />
           <label>How does it feel?</label>
           <input type="text" name="text" />
           <input class="waterFromButton" type="submit" value="Log Water" />

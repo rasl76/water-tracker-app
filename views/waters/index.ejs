@@ -51,20 +51,27 @@
             <th>Water Log</th>
             <th>Date</th>
             <th>Feelings</th>
+            <th class="blankH">Delete<br/>&#128167; </th>
           </tr>
         </thead>
         <tbody>
              <% water.forEach(function(w) { %>
             <tr>
             <td><%= w.volume %></td>
-            <td><%= w.Date %></td>
+            <td><input type="datetime-local"></td>
             <td><%= w.text %></td>
-            <td class="blank"><form action="/show/?_method=DELETE" method="POST"><button type="submit" class="deleteButton">X</button></td>
+           
+            <td class="blank"><form action="/show/?_method=DELETE" method="POST">
+              <button type="submit" class="deleteButton">X</button></td>
+              <td><form action="/show/?_method=DELETE" method="POST"><button type="submit" class="deleteButton">X</button></td>
+              
             </tr>
             <% }); %>
         </tbody>
       </table>
       </div>
+       <button class="drinkerButton"><a href="/waters/<%= drinker._id %>/log">&#128167; Log &#128167;</a></button>
+               <div class="drinkerDiv">
       </main>
     </body>
   </head>

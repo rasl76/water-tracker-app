@@ -9,7 +9,6 @@ module.exports = {
   create,
   index,
   newDrinker,
-  show,
   delDrinker,
   updateDrinker,
   editDrinker,
@@ -65,25 +64,29 @@ function editDrinker(req, res) {
 
 function delDrinker(req, res) {
   console.log(req.user);
-  Drinker.findOneAndDelete({ user: req.user.id }, function (err, drinker) {
-    console.log(drinker);
-    if (err) console.log(err);
-    res.redirect("/drinkers");
-  });
+  Drinker.findOneAndDelete(
+    { _id: req.params.id, user: req.user },
+    function (err, drinker) {
+      console.log(drinker);
+      if (err) console.log(err);
+      res.redirect("/drinkers");
+    }
+  );
 }
 
 // to go to the 'log' of this drinker
-function show(req, res) {
-  Drinker.findById(req.params.id, function (err, drinker) {
-    if (err) console.log(err);
-    res.render("drinkers/log", {
-      title: "Drinker",
-      drinker,
-      water: [],
-      user: req.user,
-    });
-  });
-}
+// function show(req, res) {
+//   Drinker.findById(req.params.id, function (err, drinker) {
+//     if (err) console.log(err);
+//     res.render("drinkers/log", {
+//       title: "Drinker",
+//       drinker,
+//       water: [],
+//       user: req.user,
+//     });
+//   });
+// }
+
 // function to edit/update drinker information
 function updateDrinker(req, res) {
   Drinker.findByIdAndUpdate(req.params.id, req.body, function (err, drinker) {
