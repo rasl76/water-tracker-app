@@ -60,7 +60,7 @@
             <td><%= w.volume %></td>
             <td><%= w.createdAt.toString().substring(0,25) %></td>
             <td><%= w.text %></td>
-            <td><form action="/waters/<%= drinker._id %>/<%= w._id%>?_method=DELETE" method="POST"><button type="submit" class="deleteButton">X</button></form></td>
+            <td><form action="/waters/<%= drinker._id %>/<%= w._id%>?_method=DELETE" method="POST"><button type="submit" class="deleteWaterButton">X</button></form></td>
             </tr>
             <% }); %>
         </tbody>

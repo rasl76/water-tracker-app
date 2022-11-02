@@ -84,6 +84,14 @@ td {
   border-radius: 30px;
   border: 1px solid #e0e0e0;
 }
+.deleteWaterButton {
+  font-size: 12px;
+  padding: 20px;
+  background-color: #90cfe8;
+  color: white;
+  border-radius: 30px;
+  border: 1px solid #e0e0e0;
+}
 .drinkersTable {
   /* max-width: 90%;
   max-height: 80%; */
