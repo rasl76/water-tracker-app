@@ -37,7 +37,6 @@ function newDrinker(req, res) {
 }
 //creates a new drinker and redirects back to drinkers index
 async function create(req, res) {
-  console.log("in create");
   req.body.user = req.user._id;
   const drinker = await Drinker.create(req.body);
   res.redirect("/drinkers");
@@ -61,7 +60,6 @@ function editDrinker(req, res) {
 }
 
 // function to delete drinker information
-
 function delDrinker(req, res) {
   console.log(req.user);
   Drinker.findOneAndDelete(
@@ -73,19 +71,6 @@ function delDrinker(req, res) {
     }
   );
 }
-
-// to go to the 'log' of this drinker
-// function show(req, res) {
-//   Drinker.findById(req.params.id, function (err, drinker) {
-//     if (err) console.log(err);
-//     res.render("drinkers/log", {
-//       title: "Drinker",
-//       drinker,
-//       water: [],
-//       user: req.user,
-//     });
-//   });
-// }
 
 // function to edit/update drinker information
 function updateDrinker(req, res) {

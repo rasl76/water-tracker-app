@@ -1,4 +1,5 @@
 const Drinker = require("../models/drinker");
+const User = require("../models/user");
 
 //redirects to log.ejs to create a log a water entry
 function newWater(req, res) {
@@ -26,9 +27,18 @@ function show(req, res) {
   });
 }
 
-//redirects to editlog.ejs to update a drinking entry
+// function to edit/update logged water entry
+// and redirect back to show.ejs
 function newUpdate(req, res) {
-  res.render("editlog", { user: req.user });
+  Drinker.findByIdAndUpdate(req.params.id, function (err, water) {
+    if (err) console.log(err);
+    console.log(water);
+    res.render("waters/editlog", {
+      title: "Edit Your Entry",
+      volume,
+      text,
+    });
+  });
 }
 
 //creates a water entry and redirects back to show.ejs
@@ -38,10 +48,8 @@ function create(req, res) {
     drinker.waters.push(water);
     // pushes the request body, pushes it to the object of 'drinker'
     drinker.save(function (err) {
-      // res.redirect("/waters/show");
-      console.log("water");
       res.redirect(`/waters/${req.params.id}`);
-      //   it takes us back to the show page
+      //   it takes us back to the index page
     });
   });
 }
@@ -49,19 +57,20 @@ function create(req, res) {
 
 // function to delete log
 function delWater(req, res) {
-  Water.findOneAndDelete({ _id: req.params.waterID }, function (err, water) {
-    if (err) return res.redirect("/");
-    // res.redirect(`/drinkers/${drinker._id}`);
-    res.render("show");
+  console.log("delWater", req.params.id, req.params.waterId);
+  Drinker.findById(req.params.id, function (err, drinker) {
+    console.log(drinker);
+    drinker.waters.id(req.params.waterId).remove();
+    drinker.save();
+    res.redirect(`/waters/${req.params.id}`);
   });
 }
 
-// function to edit/update logged water entry
-// and redirect back to show.ejs
+//redirects to editlog.ejs to update a drinking entry
 function updateLog(req, res) {
-  Water.findByIdAndUpdate(req.params.id, req.body, function (err, water) {
+  Drinker.findByIdAndUpdate(req.params.id, req.body, function (err, water) {
     if (err) console.log(err);
-    res.redirect("/drinkers/log");
+    res.redirect("/waters/index");
   });
 }
 

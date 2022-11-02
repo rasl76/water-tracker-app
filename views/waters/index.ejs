@@ -48,27 +48,25 @@
       <table class="drinkersTable">
         <thead>
           <tr>
-            <th>Water Log (ml)¢</th>
+            <th>Water Log (ml)</th>
             <th>Date</th>
             <th>Feelings</th>
-            <th>Delete<br/>&#128167; </th>
+            <th>Delete<br/>&#128167;</th>
           </tr> 
         </thead>
         <tbody>
              <% water.forEach(function(w) { %>
             <tr>
             <td><%= w.volume %></td>
-            <td><%= w.Date %></td>
+            <td><%= w.createdAt.toString().substring(0,25) %></td>
             <td><%= w.text %></td>
-            <td><form action="/show/?_method=DELETE" method="POST">
-              <button type="submit" class="deleteButton">X</button></td>
-            <td><form action="/show/?_method=DELETE" method="POST"><button type="submit" class="deleteButton">X</button></td>
+            <td><form action="/waters/<%= drinker._id %>/<%= w._id%>?_method=DELETE" method="POST"><button type="submit" class="deleteButton">X</button></form></td>
             </tr>
             <% }); %>
         </tbody>
       </table>
       </div>
-       <button class="drinkerButton"><a href="/waters/<%= drinker._id %>/log">&#128167; Log &#128167;</a></button>
+       <button class="drinkerButton"><a href="/waters/<%= drinker._id %>/log">&#128167; New Log &#128167;</a></button>
                <div class="drinkerDiv">
       </main>
     </body>

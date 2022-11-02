@@ -13,7 +13,7 @@ router.get("/:id/editlog", watersCtrl.updateLog);
 router.get("/:id", watersCtrl.show);
 
 // DELETE
-router.delete("/:id", watersCtrl.delWater);
+router.delete("/:id/:waterId", watersCtrl.delWater);
 
 // PUT
 router.put("/log/:id", watersCtrl.updateLog);
