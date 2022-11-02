@@ -7,6 +7,9 @@ nav {
   font-family: "Exo 2", sans-serif;
   padding-bottom: 20px;
 }
+.¢ {
+  color: white;
+}
 header {
   display: flex;
   flex-direction: column;
@@ -49,12 +52,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
-/* #tableDiv {
-  align-self: center;
-  justify-self: center;
-  align-content: center;
-} */
-/* .drinkDiv {} */
+
 th {
   background-color: #90cfe8;
   color: white;
@@ -102,6 +100,15 @@ td {
   border-bottom: 1px solid #ddd;
 }
 .drinkerButton {
+  margin-top: 15px;
+  padding: 25px;
+  background-color: #90cfe8;
+  font-family: "Yeseva One", cursive;
+  color: white;
+  border-radius: 40px;
+  border: #62afcd;
+}
+.logWaterButton {
   margin-top: 15px;
   padding: 25px;
   background-color: #90cfe8;

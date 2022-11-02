@@ -44,30 +44,42 @@
       </nav>
       <header>&#128166;Water Log&#128166;</header>
       <main>
-      <div class="tableDiv">
-      <table class="drinkersTable">
-        <thead>
-          <tr>
-            <th>Water Log (ml)</th>
-            <th>Date</th>
-            <th>Feelings</th>
-            <th>Delete<br/>&#128167;</th>
-          </tr> 
-        </thead>
-        <tbody>
-             <% water.forEach(function(w) { %>
-            <tr>
-            <td><%= w.volume %></td>
-            <td><%= w.createdAt.toString().substring(0,25) %></td>
-            <td><%= w.text %></td>
-            <td><form action="/waters/<%= drinker._id %>/<%= w._id%>?_method=DELETE" method="POST"><button type="submit" class="deleteWaterButton">X</button></form></td>
-            </tr>
-            <% }); %>
-        </tbody>
-      </table>
-      </div>
-       <button class="drinkerButton"><a href="/waters/<%= drinker._id %>/log">&#128167; New Log &#128167;</a></button>
-               <div class="drinkerDiv">
+        <div class="tableDiv">
+          <table class="drinkersTable">
+            <thead>
+              <tr>
+                <th colspan="4"><%= drinker.name %></th>
+              </tr>
+              <tr>
+                <th>Water Log (ml)</th>
+                <th>Date</th>
+                <th>Feelings</th>
+                <th>Delete<br />&#128167;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% water.forEach(function(w) { %>
+              <tr>
+                <td><%= w.volume %></td>
+                <td><%= w.createdAt.toString().substring(0,25) %></td>
+                <td><%= w.text %></td>
+                <td>
+                  <form
+                    action="/waters/<%= drinker._id %>/<%= w._id%>?_method=DELETE"
+                    method="POST"
+                  >
+                    <button type="submit" class="deleteWaterButton">X</button>
+                  </form>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+        <button class="logWaterButton">
+          <a class="whiteAnchor" href="/waters/<%= drinker._id %>/log"
+            >&#128167; New Log &#128167;</a>
+        </button>
       </main>
     </body>
   </head>
